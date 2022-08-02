@@ -6,16 +6,16 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/01 17:53:23 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:32:11 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include "libft/libft.h";
-#include "Gnl/get_next_line.h"
-#include "minilibx/mlx.h"
+#include "../libft/libft.h";
+#include "../Gnl/get_next_line.h"
+#include "../minilibx/mlx.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
