@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/18 16:33:11 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/18 18:14:05 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,13 @@ size_t	ft_strlen1(char *s);
 char	*ft_strchr1(char *src, int c);
 //
 void	*call_mlx(unsigned int height, unsigned int weight);
-t_utils	*utils_count(char **argv, t_utils *count);
 void	error(void);
 //MAP UTILS
 int		line_count(char **argv);
 void	create_map(char **argv, t_maps *read);
+int 	check_map(t_maps *map);
+int		check_map_lenght(t_maps *map);
+int		check_map_utils(t_maps *map);
+int 	utils_count(char *str, char c);
 
 #endif
