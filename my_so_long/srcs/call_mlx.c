@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   mlxcall.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 13:20:16 by osarihan          #+#    #+#             */
-/*   Updated: 2022/03/03 11:46:56 by osarihan         ###   ########.fr       */
+/*   Created: 2022/08/01 12:59:54 by osarihan          #+#    #+#             */
+/*   Updated: 2022/08/18 16:30:45 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
+void	*call_mlx(unsigned int height, unsigned int weight)
+{
+	void	*init;
+	void	*window;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-
-char	*get_line(char *src, int fd);
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *s);
-char	*ft_strchr(char *src, int c);
-char	*ft_read_line(char *src);
-char	*ft_save(char *src);
-
-#endif
+	init = mlx_init();
+	window = mlx_new_window(init, height, weight, "so_long");
+	return (init);
+}

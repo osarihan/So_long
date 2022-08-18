@@ -3,57 +3,84 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osarihan <osarihan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 11:27:35 by osarihan          #+#    #+#             */
-/*   Updated: 2022/02/17 12:04:50 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:02:29 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*set_str(int n, int *bas);
-
-char	*ft_itoa(int n)
+int len_count(int number)
 {
-	char	*str;
-	int		bas;
+	int count;
+	int nbr;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	str = set_str(n, &bas);
-	if (n < 0)
-		n *= -1;
-	if (!str)
-		return (NULL);
-	while (n >= 10)
+	nbr = number;
+	count = 0;
+	if (nbr < 0)
 	{
-		str[--bas] = n % 10 + '0';
-		n = n / 10;
+		nbr = nbr * -1;
 	}
-	str[--bas] = n % 10 + '0';
-	return (str);
+	while(nbr > 0)
+	{
+		nbr = nbr / 10;
+		count++;
+	}
+	return (count);
 }
 
-static char	*set_str(int n, int *bas)
+int take_power_ten(int nbr)
 {
-	char	*str;
+	int total;
 
-	*bas = 1;
-	if (n < 0)
+	total = 1;
+	if (nbr == 0)
+		return(1);
+	while (nbr > 0)
 	{
-		n *= -1;
-		(*bas)++;
+		total = total * 10;
+		nbr--;
 	}
-	while (n >= 10)
+ 	return(total);
+}
+
+int find_bas(int number, int line)
+{
+	int turn;
+	
+	turn = ((number / (take_power_ten(line - 1))) % 10);
+	line--;
+	return(turn);
+}
+
+char	*ft_itoa(int nbr)
+{
+	int j = 1;
+	char *str;
+	int i = 0;
+	unsigned int len;
+	len = len_count(nbr);
+	str = malloc(sizeof(char *) * len);
+	if (nbr == -2147483648)
 	{
-		n /= 10;
-		(*bas)++;
+		str = "-2147483648";
+		return(str);
 	}
-	str = (char *)malloc(sizeof(char) * (*bas + 1));
-	if (!str)
-		return (NULL);
-	str[0] = '-';
-	str[(*bas)] = '\0';
-	return (str);
+	if (nbr < 0)
+	{
+		nbr = nbr * -1;
+		str[i] = '-';
+		i++;
+	}
+	while (len)
+	{
+		str[i] = (find_bas(nbr, len) + 48);
+		i++;
+		j++;
+		len--;
+	}
+	str[i] = '\0';
+	return(str);
 }

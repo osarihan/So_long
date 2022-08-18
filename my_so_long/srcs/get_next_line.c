@@ -6,11 +6,11 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:25:35 by osarihan          #+#    #+#             */
-/*   Updated: 2022/03/03 12:08:23 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:41:36 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 char	*get_line(char *src, int fd)
 {
@@ -24,7 +24,7 @@ char	*get_line(char *src, int fd)
 		return (NULL);
 	}
 	size = 1;
-	while (!ft_strchr(src, '\n') && size != 0)
+	while (!ft_strchr1(src, '\n') && size != 0)
 	{
 		size = read(fd, buffer, BUFFER_SIZE);
 		if (size == -1)
@@ -33,7 +33,7 @@ char	*get_line(char *src, int fd)
 			return (NULL);
 		}
 		buffer[size] = '\0';
-		src = ft_strjoin(src, buffer);
+		src = ft_strjoin1(src, buffer);
 	}
 	free(buffer);
 	return (src);
