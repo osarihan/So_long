@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/18 18:14:05 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/20 14:52:42 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <string.h>
 
 typedef struct game_utils
 {
@@ -55,9 +56,11 @@ void	error(void);
 //MAP UTILS
 int		line_count(char **argv);
 void	create_map(char **argv, t_maps *read);
-int 	check_map(t_maps *map);
+int		check_map(t_maps *map);
 int		check_map_lenght(t_maps *map);
 int		check_map_utils(t_maps *map);
-int 	utils_count(char *str, char c);
+int		utils_count(char *str, char c);
+int		check_map_rows(t_maps *map);
+int		check_map_columns(t_maps *map);
 
 #endif
