@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/21 17:03:02 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:31:34 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct game_utils
 
 typedef struct map_utils
 {
+	void	*win_ptr;
+	void	*mlx_ptr;
 	char	**map;
 	int		fd;
 	int		count;
@@ -41,7 +43,7 @@ typedef struct map_utils
 }	t_maps;
 
 //
-void	*call_mlx(unsigned int height, unsigned int weight);
+void	call_mlx(t_maps *map);
 void	error(void);
 //MAP UTILS
 int		line_count(char **argv);
@@ -52,10 +54,10 @@ int		check_map_utils(t_maps *map);
 int		utils_count(char *str, char c);
 int		check_map_rows(t_maps *map);
 int		check_map_columns(t_maps *map);
-void	init_xpms(t_utils *utils, void *mlx_ptr);
-void	fill_map(t_utils *utils, void *mlx_ptr, void *wdw_ptr, t_maps *map);
+void	init_xpms(t_utils *utils, t_maps *map);
+void	fill_map(t_utils *utils, t_maps *map);
 //MLX FUNCS
-void	put_image(void *mlx, void *wdw, t_utils *u, t_maps *m);
+void	put_image(t_utils *u, t_maps *m);
 //KEYS
 # define ESC 53
 # define W	 13

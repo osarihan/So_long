@@ -6,7 +6,7 @@
 #    By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 12:29:30 by osarihan          #+#    #+#              #
-#    Updated: 2022/08/21 17:13:27 by osarihan         ###   ########.fr        #
+#    Updated: 2022/08/21 17:18:12 by osarihan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,5 @@ SRC = *.c libft/*.c GNL/*.c
 
 all:
 	$(CC) $(SRC) -o $(NAME) $(FLAGS)
-clean:
-	rm -rf *.o
 fclean: clean
 	@rm -rf so_long

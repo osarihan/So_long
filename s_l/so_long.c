@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:58:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/21 17:03:39 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:32:09 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_utils		*utils;
 	t_maps		*map;
-	void		*mlx_ptr;
-	void		*window_ptr;
 
 	utils = malloc(sizeof(t_utils));
 	map = malloc(sizeof(t_maps));
@@ -26,11 +24,9 @@ int	main(int argc, char **argv)
 		create_map(argv, map);
 		if (check_map(map) != 1)
 			error();
-		mlx_ptr = mlx_init();
-		window_ptr = mlx_new_window(mlx_ptr, \
-			(map->row_count * 16), (map->count * 16), "so_long");
-		fill_map(utils, mlx_ptr, window_ptr, map);
-		mlx_loop(mlx_ptr);
+		call_mlx(map);
+		fill_map(utils, map);
+		mlx_loop(map->mlx_ptr);
 	}
 	else
 		error();
