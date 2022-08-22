@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:58:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/22 04:07:17 by osarihan         ###   ########.fr       */
+/*   Created: 2022/08/21 18:01:21 by osarihan          #+#    #+#             */
+/*   Updated: 2022/08/22 04:16:01 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	loop_img(t_utils *utils, t_maps *map)
 {
-	t_utils		*utils;
-	t_maps		*map;
-
-	utils = malloc(sizeof(t_utils));
-	map = malloc(sizeof(t_maps));
-	if (argc == 2)
-	{
-		create_map(argv, map);
-		if (check_map(map) != 1)
-			error();
-		call_mlx(map);
-		init_xpms(utils, map);
-		//fill_map(utils, map);
-		find_player(map);
-		printf("map_count:%d\n", map->count);
-		loop_img(utils, map);
-		printf("d\n");
-	}
-	else
-		error();
+	printf("map_count:%d\n", map->count);
+	printf("D\n");
+	mlx_loop_hook(map->mlx_ptr, &fill_map, map);
+	printf("map_count:%d\n", map->count);
+	printf("E\n");
+	mlx_hook(map->win_ptr, 2, 1L<<0, &key_press, map);
+	printf("map_count:%d\n", map->count);
+	printf("F\n");
+	mlx_loop(map->mlx_ptr);
 }
