@@ -5,6 +5,9 @@
 		"bitset": "c",
 		"chrono": "c",
 		"unordered_map": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"sstream": "c",
+		"leak_detector_c.h": "c",
+		"locale": "c"
 	}
 }

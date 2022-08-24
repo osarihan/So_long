@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/22 03:58:21 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:04:45 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 ///////////////////////////////////////////////
-typedef struct game_utils
-{
-	void	*ground;
-	void	*hero;
-	void	*wall;
-	void	*coin;
-	void	*exit;
-	int		i;
-	int		j;
-}	t_utils;
 ///////////////////////////////////////////////
 typedef struct map_utils
 {
+	int		i;
+	int		j;
 	void	*win_ptr;
 	void	*mlx_ptr;
 	char	**map;
@@ -43,30 +35,47 @@ typedef struct map_utils
 	int		playerx;
 	int		playery;
 	int		s_count;
+	void	*ground;
+	void	*hero;
+	void	*wall;
+	void	*coin;
+	void	*exit;
+	int		first_coin_count;
+	int 	coin_count;
+	int		*xx;
+	int		*yy;
+	int		step;
 }	t_maps;
-
 ///////////////////////////////////////////////
-void	call_mlx(t_maps *map);
+void	ne_is_lazimsa(t_maps *map);
 void	error(void);
 ///////////////////////////////////////////////
 int		line_count(char **argv);
-void	create_map(char **argv, t_maps *read);
+void	create_map(char *path, t_maps *map);
 int		check_map(t_maps *map);
 int		check_map_lenght(t_maps *map);
 int		check_map_utils(t_maps *map);
 int		utils_count(char *str, char c);
 int		check_map_rows(t_maps *map);
 int		check_map_columns(t_maps *map);
-void	init_xpms(t_utils *utils, t_maps *map);
-int		fill_map(t_utils *utils, t_maps *map);
-void	put_image(t_utils *u, t_maps *m);
+void	init_xpms(t_maps *map);
+int		fill_map(t_maps *map);
+void	put_image(t_maps *m);
 ///////////////////////////////////////////////
-void	loop_img(t_utils *utils, t_maps *map);
+void	loop_img(t_maps map);
 int		key_press(int key, t_maps *maps);
 int		handle_btn(t_maps *map);
 void	move_player(t_maps *map, int key);
 int		can_move(t_maps *map, int key);
 void	find_player(t_maps *map);
+void	destroy_img(t_maps *map);
+void	coin(t_maps *map);
+///////////////////////////////////////////////
+int 	D_handler(t_maps *map, int key);
+int		S_handler(t_maps *map, int key);
+int		W_handler(t_maps *map, int key);
+int		A_handler(t_maps *map, int key);
+int		can_exit(t_maps *map);
 ///////////////////////////////////////////////
 # define ESC 53
 # define W	 13

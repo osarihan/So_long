@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:06:32 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/22 03:35:49 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:25:56 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,25 @@ int	can_move(t_maps *map, int key)
 {
 	if (key == D)
 	{
-		if (map->map[map->playerx + 1][map->playery] == '1' \
-			|| map->map[map->playerx + 1][map->playery] == 'C')
+		if	(!D_handler(map, key))
 			return(0);
 	}
 	else if(key == A)
 	{
-		if (map->map[map->playerx - 1][map->playery] == '1'\
-			|| map->map[map->playerx - 1][map->playery] == 'C')
+		if	(!A_handler(map, key))
 			return(0);
 	}
 	else if(key == S)
 	{
-		if (map->map[map->playerx][map->playery - 1] == '1'\
-			|| map->map[map->playerx][map->playery - 1] == 'C')
+		if	(!S_handler(map, key))
 			return(0);
 	}
 	else if(key == W)
 	{
-		if (map->map[map->playerx][map->playery + 1] == '1'\
-			|| map->map[map->playerx][map->playery + 1] == 'C')
+		if	(!W_handler(map, key))
 			return(0);
 	}
-	else
-		return(1);
-	return(0);
+	return(1);
 }
 
 void	move_player(t_maps *map, int key)
@@ -49,9 +43,9 @@ void	move_player(t_maps *map, int key)
 	if (key == A)
 		map->playerx--;
 	else if (key == W)
-		map->playery++;
-	else if (key == S)
 		map->playery--;
+	else if (key == S)
+		map->playery++;
 	else if (key == D)
 		map->playerx++;
 }
@@ -68,8 +62,10 @@ int	key_press(int key, t_maps *map)
 	{
 		map->map[map->playery][map->playerx] = '0';
 		move_player(map, key);
+		map->map[map->playery][map->playerx] = 'P';
 	}
-	return(0);
+
+	return(1);
 }
 
 
@@ -79,4 +75,9 @@ int	handle_btn(t_maps *map)
 	ft_putstr_fd("kapandi\n", 1);
 	exit(0);
 	return (0);
+}
+
+void	coin(t_maps *map)
+{
+	map->coin_count++;
 }

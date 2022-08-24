@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:39:19 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/20 17:07:57 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:08:02 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	check_map_utils(t_maps *map)
 		str = ft_strdup(map->map[i]);
 		hero += utils_count(str, 'p');
 		exit += utils_count(str, 'e');
+		free(str);
 		i++;
 	}
-	free(str);
 	if (hero != 1 || exit != 1)
 		error();
 	return (1);
@@ -62,14 +62,13 @@ int	utils_count(char *str, char c)
 		else if (str[k] == 'E')
 		{
 			exit++;
-		}	
+		}
 		k++;
 	}
 	if (c == 'e')
 		return (exit);
 	if (c == 'p')
 		return (hero);
-	free(str);
 	return (0);
 }
 
@@ -90,10 +89,10 @@ int	check_map_lenght(t_maps *map)
 			str2 = ft_strdup(map->map[i + 1]);
 			if (ft_strlen(str) != ft_strlen(str2))
 				error();
+			free(str2);
 		}
+		free(str);
 		i++;
 	}
-	free(str);
-	free(str2);
 	return (1);
 }

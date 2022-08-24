@@ -6,82 +6,75 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 13:58:24 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/22 04:16:51 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 11:42:06 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	fill_map(t_utils *utils, t_maps *map)
+int	fill_map(t_maps *map)
 {
-	int	i;
-	int	j;
+	int	asd;
 
-	i = 0;
-	j = 0;
-	utils->i = 0;
-	utils->j = 0;
-	map->count = map->count;
-	printf("map_count:%d\n", map->count);
-	while (map->map[i][j] != '\0')
+	asd = map->count;
+	map->i = 0;
+	map->j = 0;
+	while (asd > 0)
 	{	
-		while (map->map[utils->i][utils->j] != '\0')
+		while (map->map[map->i][map->j] != '\0')
 		{
-			put_image(utils, map);
-			utils->j++;
+			put_image(map);
+			map->j++;
 		}
-		utils->j = 0;
-		utils->i++;
-		j++;
-		i++;
+		map->j = 0;
+		map->i++;
+		asd--;
 	}
 	return(0);
 }
 
-void	put_image(t_utils *u, t_maps *m)
+void	put_image(t_maps *m)
 {
-	if (m->map[u->i][u->j] == '1')
+	if (m->map[m->i][m->j] == '1')
 		mlx_put_image_to_window(m->mlx_ptr, \
-			m->win_ptr, u->wall, u->j * 16, u->i * 16);
-	else if (m->map[u->i][u->j] == '0')
+			m->win_ptr, m->wall, m->j * 16, m->i * 16);
+	else if (m->map[m->i][m->j] == '0')
 		mlx_put_image_to_window(m->mlx_ptr, \
-			m->win_ptr, u->ground, u->j * 16, u->i * 16);
-	else if (m->map[u->i][u->j] == 'C' || m->map[u->i][u->j] == 'P')
+			m->win_ptr, m->ground, m->j * 16, m->i * 16);
+	else if (m->map[m->i][m->j] == 'C' || m->map[m->i][m->j] == 'P')
 	{
 		mlx_put_image_to_window(m->mlx_ptr, \
-			m->win_ptr, u->ground, u->j * 16, u->i * 16);
-		if (m->map[u->i][u->j] == 'C')
+			m->win_ptr, m->ground, m->j * 16, m->i * 16);
+		if (m->map[m->i][m->j] == 'C')
 			mlx_put_image_to_window(m->mlx_ptr, \
-				m->win_ptr, u->coin, u->j * 16, u->i * 16);
+				m->win_ptr, m->coin, m->j * 16, m->i * 16);
 		else
 			mlx_put_image_to_window(m->mlx_ptr, \
-				m->win_ptr, u->hero, u->j * 16, u->i * 16);
+				m->win_ptr, m->hero, m->j * 16, m->i * 16);
 	}
-	else if (m->map[u->i][u->j] == 'E')
+	else if (m->map[m->i][m->j] == 'E')
 	{
 		mlx_put_image_to_window(m->mlx_ptr, \
-			m->win_ptr, u->ground, u->j * 16, u->i * 16);
+			m->win_ptr, m->ground, m->j * 16, m->i * 16);
 		mlx_put_image_to_window(m->mlx_ptr, \
-			m->win_ptr, u->exit, u->j * 16, u->i * 16);
+			m->win_ptr, m->exit, m->j * 16, m->i * 16);
 	}	
 }
 
-void	init_xpms(t_utils *utils, t_maps *map)
+void	init_xpms(t_maps *m)
 {
-	int	*xx;
-	int	*yy;
 	int	x;
 	int	y;
 
 	x = 16;
 	y = 16;
-	xx = &x;
-	yy = &y;
-	utils->wall = mlx_xpm_file_to_image(map->mlx_ptr, IMG_WALL, xx, yy);
-	utils->hero = mlx_xpm_file_to_image(map->mlx_ptr, IMG_PLAYER, xx, yy);
-	utils->coin = mlx_xpm_file_to_image(map->mlx_ptr, IMG_COIN, xx, yy);
-	utils->exit = mlx_xpm_file_to_image(map->mlx_ptr, IMG_EXIT, xx, yy);
-	utils->ground = mlx_xpm_file_to_image(map->mlx_ptr, IMG_GROUND, xx, yy);
+	m->xx = &x;
+	m->yy = &y;
+	m->wall = mlx_xpm_file_to_image(m->mlx_ptr, IMG_WALL, m->xx, m->yy);
+	m->hero = mlx_xpm_file_to_image(m->mlx_ptr, IMG_PLAYER, m->xx, m->yy);
+	m->coin = mlx_xpm_file_to_image(m->mlx_ptr, IMG_COIN, m->xx, m->yy);
+	m->exit = mlx_xpm_file_to_image(m->mlx_ptr, IMG_EXIT, m->xx, m->yy);
+	m->ground = mlx_xpm_file_to_image(m->mlx_ptr, IMG_GROUND, m->xx, m->yy);
 }
 
 void	find_player(t_maps *map)
@@ -91,18 +84,21 @@ void	find_player(t_maps *map)
 
 	i = 0;
 	j = 0;
-	printf("Mapfimdcount:%d\n", map->count);
+	map->first_coin_count = 0;
 	while(i < map->count)
 	{
 		while(map->map[i][j] != '\0')
-		{
+		{	
 			if (map->map[i][j] == 'P')
 			{
 				map->playerx = j;
 				map->playery = i;
 			}
+			else if (map->map[i][j] == 'C')
+				map->first_coin_count++;
 			j++;
 		}
+		j = 0;
 		i++;
 	}	
 }
