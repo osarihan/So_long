@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:01:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/23 14:07:44 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:38:08 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	loop_img(t_maps map)
 {
-	//printf("map_count:%d\n", map.count);
-	//destroy_img(&map);
-	mlx_loop_hook(map.mlx_ptr, &fill_map, &map);
-	mlx_hook(map.win_ptr, 2, 1L<<0, &key_press, &map);
-	mlx_hook(map.win_ptr, 17, 0L, &key_press, &map);
-	mlx_loop(map.mlx_ptr);
+	mlx_loop_hook (map.mlx_ptr, &fill_map, &map);
+	mlx_hook (map.win_ptr, 2, 1L << 0, &key_press, &map);
+	mlx_hook (map.win_ptr, 17, 0L, &key_press, &map);
+	mlx_loop (map.mlx_ptr);
 }
 
 void	destroy_img(t_maps *map)

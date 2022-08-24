@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 13:58:24 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 11:42:06 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:28:32 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	fill_map(t_maps *map)
 		map->i++;
 		asd--;
 	}
-	return(0);
+	return (0);
 }
 
 void	put_image(t_maps *m)
@@ -80,14 +80,14 @@ void	init_xpms(t_maps *m)
 void	find_player(t_maps *map)
 {
 	int		i;
-	int 	j;
+	int		j;
 
 	i = 0;
 	j = 0;
 	map->first_coin_count = 0;
-	while(i < map->count)
+	while (i < map->count)
 	{
-		while(map->map[i][j] != '\0')
+		while (map->map[i][j] != '\0')
 		{	
 			if (map->map[i][j] == 'P')
 			{

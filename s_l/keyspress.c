@@ -6,10 +6,9 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:06:32 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/23 16:25:56 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:37:17 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "so_long.h"
 
@@ -17,25 +16,25 @@ int	can_move(t_maps *map, int key)
 {
 	if (key == D)
 	{
-		if	(!D_handler(map, key))
-			return(0);
+		if (!d_handler(map, key))
+			return (0);
 	}
-	else if(key == A)
+	else if (key == A)
 	{
-		if	(!A_handler(map, key))
-			return(0);
+		if (!a_handler(map, key))
+			return (0);
 	}
-	else if(key == S)
+	else if (key == S)
 	{
-		if	(!S_handler(map, key))
-			return(0);
+		if (!s_handler(map, key))
+			return (0);
 	}
-	else if(key == W)
+	else if (key == W)
 	{
-		if	(!W_handler(map, key))
-			return(0);
+		if (!w_handler(map, key))
+			return (0);
 	}
-	return(1);
+	return (1);
 }
 
 void	move_player(t_maps *map, int key)
@@ -64,10 +63,8 @@ int	key_press(int key, t_maps *map)
 		move_player(map, key);
 		map->map[map->playery][map->playerx] = 'P';
 	}
-
-	return(1);
+	return (1);
 }
-
 
 int	handle_btn(t_maps *map)
 {

@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 14:05:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 17:09:53 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:27:11 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	create_map(char **argv, t_maps *map)
 
 #include "so_long.h"
 
-int		count(char *path)
+int	count(char *path)
 {
 	int		fd;
 	char	*line;
@@ -208,23 +208,22 @@ void	create_map(char *path, t_maps *map)
 	int	i;
 	int	j;
 	int	asd;
-	int efg;
+	int	efg;
 
 	map->count = count(path);
 	map->row_count = rows_count(path);
 	asd = map->count;
 	efg = map->row_count;
 	i = 0;
-	map->map = ft_calloc(map->count, sizeof(char *));	
+	map->map = ft_calloc(map->count, sizeof(char *));
 	map->fd = open(path, O_RDONLY);
 	while (i < asd)
 	{
 		j = 0;
-		//map->map[i] = malloc(sizeof(char *) * asd);
 		map->map[i] = get_next_line(map->fd);
-		if(map->map[i])
+		if (map->map[i])
 			map->map[i][efg] = '\0';
 		i++;
 	}
-	close(map->fd);
+	close (map->fd);
 }

@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 17:04:45 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:38:41 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct map_utils
 	void	*coin;
 	void	*exit;
 	int		first_coin_count;
-	int 	coin_count;
+	int		coin_count;
 	int		*xx;
 	int		*yy;
 	int		step;
@@ -71,10 +71,10 @@ void	find_player(t_maps *map);
 void	destroy_img(t_maps *map);
 void	coin(t_maps *map);
 ///////////////////////////////////////////////
-int 	D_handler(t_maps *map, int key);
-int		S_handler(t_maps *map, int key);
-int		W_handler(t_maps *map, int key);
-int		A_handler(t_maps *map, int key);
+int		d_handler(t_maps *map, int key);
+int		s_handler(t_maps *map, int key);
+int		w_handler(t_maps *map, int key);
+int		a_handler(t_maps *map, int key);
 int		can_exit(t_maps *map);
 ///////////////////////////////////////////////
 # define ESC 53

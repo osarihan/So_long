@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:58:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 17:06:18 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:39:14 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		create_map(argv[1], &map);
-		printf("asdf\n");
 		if (check_map(&map) != 1)
 			error();
 		ne_is_lazimsa(&map);
