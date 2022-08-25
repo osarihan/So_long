@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   call_mlx.c                                         :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:59:54 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 11:41:00 by osarihan         ###   ########.fr       */
+/*   Created: 2022/08/01 12:58:21 by osarihan          #+#    #+#             */
+/*   Updated: 2022/08/25 13:43:33 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ne_is_lazimsa(t_maps *map)
+int	main(int argc, char **argv)
 {
-	map->i = 0;
-	map->step = 0;
-	map->playerx = 0;
-	map->playery = 0;
-	map->s_count = 0;
-	map->first_coin_count = 0;
-	map->coin_count = 0;
-	map->mlx_ptr = mlx_init();
-	map->win_ptr = mlx_new_window(map->mlx_ptr, \
-		map->row_count * 16, map->count * 16, "so_long");
+	t_maps		map;
+
+	if (argc == 2)
+	{
+		name_check(argv);
+		create_map(argv[1], &map);
+		if (check_map(&map) != 1)
+			error(2);
+		ne_is_lazimsa(&map);
+		init_xpms(&map);
+		fill_map(&map);
+		find_player(&map);
+		loop_img(map);
+	}
+	else
+	{
+		error(1);
+	}
 }

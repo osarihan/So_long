@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:39:19 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/23 18:08:02 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:46:22 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_map_utils(t_maps *map)
 		i++;
 	}
 	if (hero != 1 || exit != 1)
-		error();
+		error(3);
 	return (1);
 }
 
@@ -88,7 +88,7 @@ int	check_map_lenght(t_maps *map)
 		{
 			str2 = ft_strdup(map->map[i + 1]);
 			if (ft_strlen(str) != ft_strlen(str2))
-				error();
+				error(4);
 			free(str2);
 		}
 		free(str);

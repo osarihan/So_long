@@ -6,16 +6,16 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 17:38:41 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/25 13:46:05 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 ///////////////////////////////////////////////
-# include "libft/libft.h"
-# include "minilibx/mlx.h"
-# include "GNL/get_next_line.h"
+# include "../libft/libft.h"
+# include "../minilibx/mlx.h"
+# include "../GNL/get_next_line.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -48,7 +48,7 @@ typedef struct map_utils
 }	t_maps;
 ///////////////////////////////////////////////
 void	ne_is_lazimsa(t_maps *map);
-void	error(void);
+void	error(int er);
 ///////////////////////////////////////////////
 int		line_count(char **argv);
 void	create_map(char *path, t_maps *map);
@@ -76,6 +76,8 @@ int		s_handler(t_maps *map, int key);
 int		w_handler(t_maps *map, int key);
 int		a_handler(t_maps *map, int key);
 int		can_exit(t_maps *map);
+int		destroy(void);
+void	name_check(char **argv);
 ///////////////////////////////////////////////
 # define ESC 53
 # define W	 13

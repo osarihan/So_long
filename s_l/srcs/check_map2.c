@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 14:12:02 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/23 18:12:04 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/24 17:47:37 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_map_rows(t_maps *map)
 	while (str[j] != '\n' && str[j + 1] != '\0')
 	{
 		if (str[j] != '1')
-			error();
+			error(2);
 		j++;
 	}
 	free(str);
@@ -31,7 +31,7 @@ int	check_map_rows(t_maps *map)
 	while (str[j] != '\n' && str[j + 1] != '\0')
 	{
 		if (str[j] != '1')
-			error();
+			error(2);
 		j++;
 	}
 	free(str);
@@ -50,10 +50,10 @@ int	check_map_columns(t_maps *map)
 	{
 		str = map->map[i][0];
 		if (str != '1')
-			error();
+			error(2);
 		str = map->map[i][map->row_count - 1];
 		if (str != '1')
-			error();
+			error(2);
 		i++;
 	}
 	return (1);
