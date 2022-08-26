@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 14:13:23 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/25 13:58:38 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:07:22 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	error(int er)
 	else if (er == 2)
 		write(1, "Hatalı Map Dosyası!\n", 23);
 	else if (er == 3)
-		write(1, "Haritada Karakter ya da Çıkış yok\n", 39);
+		write(1, "Haritada Karakter ya da Çıkış ya da coin yok\n", 50);
 	else if (er == 4)
 		write(1, "Map Dikdörtgen Değil!\n", 25);
 	exit(1);
@@ -60,4 +60,15 @@ void	name_check(char **argv)
 	{
 		return ;
 	}		
+}
+
+void	move_msg(t_maps *map)
+{
+	char	*c;
+
+	c = ft_itoa(map->step);
+	ft_putstr_fd("\e[1;1H\e[2J", 1);
+	ft_putstr_fd("step:", 1);
+	ft_putstr_fd(c, 1);
+	ft_putstr_fd("\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/25 13:46:05 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:14:19 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int		a_handler(t_maps *map, int key);
 int		can_exit(t_maps *map);
 int		destroy(void);
 void	name_check(char **argv);
+void	move_msg(t_maps *map);
+void	utils_check(char *str);
 ///////////////////////////////////////////////
 # define ESC 53
 # define W	 13

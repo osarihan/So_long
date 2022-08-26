@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:55:14 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/24 17:35:48 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/26 11:48:22 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	d_handler(t_maps *map, int key)
 		{
 			if (can_exit(map) == 1)
 			{
-				write(1, "TEBRIKLER\n", 10);
+				write(1, "You are super player\n", 22);
 				exit(0);
 			}
 			else
@@ -46,7 +46,7 @@ int	s_handler(t_maps *map, int key)
 		{
 			if (can_exit(map) == 1)
 			{
-				write(1, "TEBRIKLER\n", 10);
+				write(1, "You are super player\n", 22);
 				exit(0);
 			}
 			else
@@ -68,7 +68,7 @@ int	w_handler(t_maps *map, int key)
 		{
 			if (can_exit(map) == 1)
 			{
-				write(1, "TEBRIKLER\n", 10);
+				write(1, "You are super player\n", 22);
 				exit(0);
 			}
 			else
@@ -90,7 +90,7 @@ int	a_handler(t_maps *map, int key)
 		{
 			if (can_exit(map) == 1)
 			{
-				write(1, "TEBRIKLER\n", 10);
+				write(1, "You are super player\n", 22);
 				exit(0);
 			}
 			else

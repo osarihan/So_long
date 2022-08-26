@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:06:32 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/25 12:28:39 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/26 11:43:32 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,25 @@ int	can_move(t_maps *map, int key)
 	{
 		if (!d_handler(map, key))
 			return (0);
+		map->step++;
 	}
 	else if (key == A)
 	{
 		if (!a_handler(map, key))
 			return (0);
+		map->step++;
 	}
 	else if (key == S)
 	{
 		if (!s_handler(map, key))
 			return (0);
+		map->step++;
 	}
 	else if (key == W)
 	{
 		if (!w_handler(map, key))
 			return (0);
+		map->step++;
 	}
 	return (1);
 }
@@ -51,6 +55,8 @@ void	move_player(t_maps *map, int key)
 
 int	key_press(int key, t_maps *map)
 {
+	char	*c;
+
 	if (key == ESC)
 	{
 		mlx_destroy_window(map->mlx_ptr, map->win_ptr);
@@ -62,6 +68,8 @@ int	key_press(int key, t_maps *map)
 		map->map[map->playery][map->playerx] = '0';
 		move_player(map, key);
 		map->map[map->playery][map->playerx] = 'P';
+		c = ft_itoa(map->step);
+		move_msg(map);
 	}
 	return (1);
 }
