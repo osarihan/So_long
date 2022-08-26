@@ -6,7 +6,7 @@
 #    By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 12:29:30 by osarihan          #+#    #+#              #
-#    Updated: 2022/08/26 13:27:05 by osarihan         ###   ########.fr        #
+#    Updated: 2022/08/26 13:27:39 by osarihan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ all:
 clean:
 	@rm -rf libft.a
 fclean: clean
-	@rm -rf so_long
+	@rm -rf $(NAME)
 norm:
 	@norminette libft srcs GNL
 re: fclean all
