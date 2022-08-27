@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 18:01:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 13:41:25 by osarihan         ###   ########.fr       */
+/*   Created: 2022/08/01 12:58:21 by osarihan          #+#    #+#             */
+/*   Updated: 2022/08/27 15:11:00 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	loop_img(t_maps map)
+int	main(int argc, char **argv)
 {
-	mlx_loop_hook (map.mlx_ptr, &fill_map, &map);
-	mlx_hook (map.win_ptr, 2, 1L << 0, &key_press, &map);
-	mlx_hook (map.win_ptr, 17, 0L, &destroy, &map);
-	mlx_loop (map.mlx_ptr);
+	t_maps		map;
+
+	if (argc == 2)
+	{
+		name_check(argv);
+		create_map(argv[1], &map);
+		if (check_map(&map) != 1)
+			error(2);
+		ne_is_lazimsa(&map);
+		init_xpms(&map);
+		fill_map(&map);
+		find_player(&map);
+		loop_img(map);
+	}
+	else
+	{
+		error(1);
+	}
 }

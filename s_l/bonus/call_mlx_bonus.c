@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   call_mlx_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 18:01:21 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 13:41:25 by osarihan         ###   ########.fr       */
+/*   Created: 2022/08/01 12:59:54 by osarihan          #+#    #+#             */
+/*   Updated: 2022/08/27 16:11:02 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	loop_img(t_maps map)
+void	ne_is_lazimsa(t_maps *map)
 {
-	mlx_loop_hook (map.mlx_ptr, &fill_map, &map);
-	mlx_hook (map.win_ptr, 2, 1L << 0, &key_press, &map);
-	mlx_hook (map.win_ptr, 17, 0L, &destroy, &map);
-	mlx_loop (map.mlx_ptr);
+	map->i = 0;
+	map->step = 0;
+	map->playerx = 0;
+	map->playery = 0;
+	map->s_count = 0;
+	map->first_coin_count = 0;
+	map->coin_count = 0;
+	map->can_exit = 0;
+	map->move = 0;
+	map->mlx_ptr = mlx_init();
+	map->win_ptr = mlx_new_window(map->mlx_ptr, \
+		map->row_count * 16, map->count * 16, "so_long");
 }

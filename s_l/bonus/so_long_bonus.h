@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:55:38 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 13:41:32 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:12:11 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 ///////////////////////////////////////////////
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
@@ -24,27 +24,33 @@
 ///////////////////////////////////////////////
 typedef struct map_utils
 {
-	int		i;
-	int		j;
-	void	*win_ptr;
-	void	*mlx_ptr;
-	char	**map;
-	int		fd;
-	int		count;
-	int		row_count;
-	int		playerx;
-	int		playery;
-	int		s_count;
-	void	*ground;
-	void	*hero;
-	void	*wall;
-	void	*coin;
-	void	*exit;
-	int		first_coin_count;
-	int		coin_count;
-	int		*xx;
-	int		*yy;
-	int		step;
+	void					*win_ptr;
+	void					*mlx_ptr;
+	char					**map;
+	void					*foe;
+	void					*ground;
+	void					*hero;
+	void					*wall;
+	void					*coin;
+	void					*exit;
+	void					*foe2;
+	void					*exit2;
+	void					*hero2;
+	int						*xx;
+	int						*yy;
+	int						i;
+	int						j;
+	int						fd;
+	int						count;
+	int						row_count;
+	int						playerx;
+	int						playery;
+	int						s_count;
+	int						first_coin_count;
+	int						coin_count;
+	int						step;
+	int						can_exit;
+	unsigned long int		move;
 }	t_maps;
 ///////////////////////////////////////////////
 void	ne_is_lazimsa(t_maps *map);
@@ -79,6 +85,10 @@ int		destroy(void);
 void	name_check(char **argv);
 void	move_msg(t_maps *map);
 void	utils_check(char *str);
+void	move_msg2(t_maps *map);
+void	put_img2(t_maps *m, int key);
+void	put_img3(t_maps *m, int key);
+void	put_img4(t_maps *m, int key);
 ///////////////////////////////////////////////
 # define ESC 53
 # define W	 13
@@ -88,9 +98,12 @@ void	utils_check(char *str);
 ///////////////////////////////////////////////
 # define IMG_WALL "./xpms/1_wall.xpm"
 # define IMG_GROUND "./xpms/0_wall.xpm"
-# define IMG_PLAYER "./xpms/knight.xpm"
-# define IMG_EXIT "./xpms/closed_door.xpm"
+# define IMG_PLAYER "./xpms/balcik01.xpm"
+# define IMG_PLAYER2 "./xpms/balcik02.xpm"
+# define IMG_EXIT "./xpms/kapalilapi.xpm"
+# define IMG_EXIT2 "./xpms/acikkapi.xpm"
 # define IMG_COIN "./xpms/coin.xpm"
-# define IMG_FOE "./xpms/foe.xpm"
+# define IMG_FOE "./xpms/foe_1.xpm"
+# define IMG_FOE2 "./xpms/foe_2.xpm"
 
 #endif

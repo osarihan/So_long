@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 16:39:19 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 14:01:51 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:01:44 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	check_map(t_maps *map)
 {
@@ -48,12 +48,13 @@ int	check_map_utils(t_maps *map)
 	return (1);
 }
 
-void	utils_check(char *s)
+void	utils_check(char *str)
 {
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		if (*s == 'P' || *s == 'C' || *s == '0' || *s == '1' || *s == 'E')
-			s++;
+		if (*str == 'P' || *str == 'C' || *str == '0' || \
+			*str == '1' || *str == 'E' || *str == 'F')
+			str++;
 		else
 		{
 			write(1, "Error\nHaritada istenmeyen karakter var\n", 40);
