@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 14:13:23 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 17:00:36 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:40:15 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	name_check(char **argv)
 
 	str2 = ".ber";
 	i = 0;
-	str = malloc(sizeof(char *) * 4);
 	str = ft_strchr(argv[1], '.');
 	if (str)
 	{
@@ -56,10 +55,6 @@ void	name_check(char **argv)
 			}				
 		}
 	}
-	else
-	{
-		return ;
-	}		
 }
 
 void	move_msg(t_maps *map)
@@ -71,8 +66,7 @@ void	move_msg(t_maps *map)
 	ft_putstr_fd("step:", 1);
 	ft_putstr_fd(c, 1);
 	ft_putstr_fd("\n", 1);
-	if (c)
-		free(c);
+	free(c);
 }
 
 void	move_msg2(t_maps *map)
@@ -82,4 +76,5 @@ void	move_msg2(t_maps *map)
 	c = ft_itoa(map->step);
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 10, 10, 0x00FF0000, "Step:");
 	mlx_string_put(map->mlx_ptr, map->win_ptr, 130, 10, 0x0000FF00, c);
+	free(c);
 }

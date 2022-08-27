@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:55:14 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 16:59:37 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:06:51 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	w_handler(t_maps *map, int key)
 		}
 		else if (map->map[map->playery - 1][map->playerx] == 'F')
 		{
-			write(1, "gg!\n", 4);
+			write(1, "bb\n", 3);
 			exit(0);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 17:05:58 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/27 17:12:27 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:29:49 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	put_img4(t_maps *m, int key)
 			m->win_ptr, m->coin, m->j * 16, m->i * 16);
 	else
 	{
-		if (m->move % 13 == 0)
+		if (m->step % 2 == 0)
 			mlx_put_image_to_window(m->mlx_ptr, \
 				m->win_ptr, m->hero, m->j * 16, m->i * 16);
 		else

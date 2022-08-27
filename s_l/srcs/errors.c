@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 14:13:23 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/26 13:07:22 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:39:57 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	name_check(char **argv)
 
 	str2 = ".ber";
 	i = 0;
-	str = malloc(sizeof(char *) * 4);
 	str = ft_strchr(argv[1], '.');
 	if (str)
 	{
@@ -53,13 +52,9 @@ void	name_check(char **argv)
 			{
 				write(1, "Error\n.ber degil\n", 18);
 				exit(0);
-			}				
+			}
 		}
 	}
-	else
-	{
-		return ;
-	}		
 }
 
 void	move_msg(t_maps *map)
@@ -71,4 +66,5 @@ void	move_msg(t_maps *map)
 	ft_putstr_fd("step:", 1);
 	ft_putstr_fd(c, 1);
 	ft_putstr_fd("\n", 1);
+	free(c);
 }

@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 18:06:32 by osarihan          #+#    #+#             */
-/*   Updated: 2022/08/26 11:43:32 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:14:16 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	key_press(int key, t_maps *map)
 		map->map[map->playery][map->playerx] = 'P';
 		c = ft_itoa(map->step);
 		move_msg(map);
+		free(c);
 	}
 	return (1);
 }
